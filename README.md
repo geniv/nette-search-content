@@ -27,7 +27,7 @@ getList(): array;
 
 php usage:
 ```php
-$searchContent = new SearchContent();
+$searchContent = new SearchContent(array $searchMask, array $searchPath, array $excludePath);
 
 // return value: [type, value]
 $orderControl->getListCategory();

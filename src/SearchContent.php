@@ -14,8 +14,6 @@ class SearchContent implements ISearchContent
 {
     /** @var array */
     private $searchMask, $searchPath, $excludePath, $listCategory, $list;
-    /** @var bool */
-    private $onlyTranslation;
 
 
     /**
@@ -24,15 +22,12 @@ class SearchContent implements ISearchContent
      * @param array $searchMask
      * @param array $searchPath
      * @param array $excludePath
-     * @param bool  $onlyTranslation
      */
-    public function __construct(array $searchMask, array $searchPath, array $excludePath, bool $onlyTranslation = false)
+    public function __construct(array $searchMask, array $searchPath, array $excludePath)
     {
         $this->searchMask = $searchMask;
         $this->searchPath = $searchPath;
         $this->excludePath = $excludePath;
-
-        $this->onlyTranslation = $onlyTranslation;
     }
 
 
@@ -76,11 +71,9 @@ class SearchContent implements ISearchContent
                     // content index
                     $contentIndex = Strings::replace($index, ['#@[a-z]+@#' => '']);
                     $value = ['type' => $contentType ?: $defaultType, 'value' => $item];
-                    if ($this->onlyTranslation) {
-                        // select except translation
-                        $this->listCategory[$partPath][$contentIndex] = $value;
-                        $this->list[$contentIndex] = $value;
-                    }
+
+                    $this->listCategory[$partPath][$contentIndex] = $value;
+                    $this->list[$contentIndex] = $value;
                 }
             }
         }

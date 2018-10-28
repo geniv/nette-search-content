@@ -32,6 +32,39 @@ class SearchContent implements ISearchContent
 
 
     /**
+     * Get search mask.
+     *
+     * @return array
+     */
+    public function getSearchMask(): array
+    {
+        return $this->searchMask ?? [];
+    }
+
+
+    /**
+     * Get search path.
+     *
+     * @return array
+     */
+    public function getSearchPath(): array
+    {
+        return $this->searchPath ?? [];
+    }
+
+
+    /**
+     * Get exclude path.
+     *
+     * @return array
+     */
+    public function getExcludePath(): array
+    {
+        return $this->excludePath ?? [];
+    }
+
+
+    /**
      * Process.
      */
     private function process()

@@ -95,7 +95,7 @@ class SearchContent implements ISearchContent
     public function getListCategory(): array
     {
         $this->process();
-        return $this->listCategory;
+        return $this->listCategory ?? [];
     }
 
 
@@ -107,6 +107,6 @@ class SearchContent implements ISearchContent
     public function getList(): array
     {
         $this->process();
-        return $this->list;
+        return $this->list ?? [];
     }
 }

@@ -28,6 +28,8 @@ getList(): array;
 php usage:
 ```php
 $searchContent = new SearchContent();
+
+// return value: [type, value]
 $orderControl->getListCategory();
 $orderControl->getList();
 ```
